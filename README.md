@@ -19,7 +19,7 @@ Android-приложение на Kotlin, которое автоматичес�
 
 - Android 8.0+ (API 26)
 - Локальная сеть (Wi-Fi)
-- Запущенный [mediaserver](https://github.com/PA3MA3AH) на ПК в той же сети
+- Запущенный [mediaserver](https://github.com/PA3MA3AH/mediaserver) на ПК в той же сети
 
 ---
 
