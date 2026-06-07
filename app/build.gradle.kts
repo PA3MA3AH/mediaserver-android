@@ -3,11 +3,9 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
 }
-
 android {
     namespace  = "com.mediasync"
     compileSdk = 35
-
     defaultConfig {
         applicationId = "com.mediasync"
         minSdk        = 26          // Android 8.0+
@@ -15,27 +13,31 @@ android {
         versionCode   = 1
         versionName   = "1.0"
     }
-
+    signingConfigs {
+        create("release") {
+            storeFile = file("mediasync.jks")
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+        }
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
         }
     }
-
     buildFeatures {
         viewBinding = true
     }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
     kotlinOptions {
         jvmTarget = "17"
     }
 }
-
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
