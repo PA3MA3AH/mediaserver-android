@@ -1,0 +1,18 @@
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Local config
+local.properties
+
+# Android Studio
+.idea/
+*.iml
+
+# Kotlin
+.kotlin/
+
+# Signing keys (никогда не пушить!)
+*.jks
+*.keystore
